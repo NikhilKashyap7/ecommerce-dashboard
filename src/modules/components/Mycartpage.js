@@ -3,37 +3,37 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, saveForLater, increaseQuantity, decreaseQuantity } from "../redux/Cartredux";
 import { Link } from "react-router-dom";
 import Mynavbar from "../shares/Mynavbar";
-import ProductModal from "../shares/ViewDetails"; // Import the ProductModal component
+import ProductModal from "../shares/ViewDetails"; 
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-  const [selectedProduct, setSelectedProduct] = useState(null); // To hold the selected product for the modal
-  const [showModal, setShowModal] = useState(false); // To control the visibility of the modal
+  const [selectedProduct, setSelectedProduct] = useState(null); 
+  const [showModal, setShowModal] = useState(false); 
 
   const handleRemove = (id) => {
     const confirmRemove = window.confirm("Are you sure you want to remove this item from your cart?");
     if (confirmRemove) {
-      dispatch(removeFromCart(id)); // Remove item from cart
+      dispatch(removeFromCart(id)); 
     }
   };
 
   const handleSaveForLater = (product) => {
-    dispatch(saveForLater(product)); // Move item to wishlist
+    dispatch(saveForLater(product)); 
   };
 
   const handleIncrease = (id) => {
-    dispatch(increaseQuantity(id)); // Increase item quantity
+    dispatch(increaseQuantity(id)); 
   };
 
   const handleDecrease = (id) => {
-    dispatch(decreaseQuantity(id)); // Decrease item quantity
+    dispatch(decreaseQuantity(id)); 
   };
 
-  // Define the handleViewDetails function
+  
   const handleViewDetails = (product) => {
-    setSelectedProduct(product); // Set the selected product for the modal
-    setShowModal(true); // Show the modal
+    setSelectedProduct(product); 
+    setShowModal(true); 
   };
 
   return (
@@ -92,8 +92,8 @@ const CartPage = () => {
       {selectedProduct && (
         <ProductModal
           show={showModal}
-          handleClose={() => setShowModal(false)} // Close modal handler
-          product={selectedProduct} // Pass the selected product to the modal
+          handleClose={() => setShowModal(false)} 
+          product={selectedProduct} 
         />
       )}
     </>
