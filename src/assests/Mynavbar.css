@@ -1,0 +1,55 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar {
+    background-color: #fff;
+    padding: 10px 0;
+  }
+  
+  .logo img {
+    max-height: 40px;
+  }
+  
+  .menu-button,
+  .icon-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .search-box {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .search-box .form-control {
+    width: calc(100% - 40px);
+    margin-right: 10px;
+  }
+  
+  .search-button {
+    display: inline-flex;
+    align-items: center;
+  }
+  .navbar-light-bottom-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for bottom */
+  }
+
+  @media (max-width: 576px) {
+    .navbar-brand {
+      margin: 0 auto;
+    }
+    .navbar-toggler {
+      margin-left: auto;
+    }
+  }

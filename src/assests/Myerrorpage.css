@@ -1,0 +1,43 @@
+.error-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #ff4081;
+  }
+  
+  .error-message {
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .error-description {
+    color: gray;
+    margin-bottom: 20px;
+  }
+  
+  .astronaut {
+    width: 150px;
+    height: 150px;
+    background: url('../modules/images/astronaut.png') no-repeat center/contain;
+    position: absolute;
+    top: 20%;
+    animation: float 4s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
