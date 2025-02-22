@@ -10,11 +10,14 @@ import Mycartpage from './modules/components/Mycartpage.js';
 import "../src/assests/Mysidebar.css";
 import "../src/assests/Mynavbar.css";
 import "../src/assests/Viewdetails.css";
+import "../src/assests/Loader.css";
 import ErrorPage from './modules/shares/Myerrorpage.js';
 import { Provider } from 'react-redux';
 import store from './modules/redux/Reduxstore.js';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
+import Login from './modules/auth/Myloginpage.js';
+import Myregistorpage from './modules/auth/Myregistorpage.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -26,6 +29,8 @@ root.render(
       <Route path="/" element={<Mylandingpage/>} />
       <Route path='*'  element={<ErrorPage/>}/>
       <Route path='/mycart' element={<Mycartpage/>}/>
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/register' element={<Myregistorpage/>}/>
     </Routes>
     </FilterProvider>
     </Provider>

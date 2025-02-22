@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import { FaShoppingCart } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { FaSearch } from "react-icons/fa";
+import { toggleDarkMode } from "../redux/Darkmode";
 
 function Mynavbar() {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkMode = useSelector(state => state.darkMode.darkMode);
+  const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();
@@ -20,22 +23,22 @@ function Mynavbar() {
     }
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+  // const toggleDarkMode = () => {
+  //   setDarkMode((prevMode) => !prevMode);
+  // };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/search?q=${searchQuery}`);
-      setSearchQuery(""); // Clear input after search
+      setSearchQuery(""); 
     }
   };
 
   return (
     <nav
-      className={`navbar navbar-expand-lg ${darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"} 
-      ${!darkMode ? "navbar-light-bottom-shadow" : ""} shadow-sm`}
+      className={`navbar navbar-expand-lg fixed-top ${darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"} 
+      ${!darkMode ? "navbar-light-bottom-shadow" : ""} `}
     >
       <div className="container">
         <Link className="navbar-brand" to="/">
@@ -64,17 +67,19 @@ function Mynavbar() {
 
           {/* 🔹 Working Search Bar */}
           <form className="d-flex" onSubmit={handleSearchSubmit}>
-            <input 
-              className={`form-control me-2 ${darkMode ? "bg-dark text-light" : "bg-light text-dark"}`} 
-              type="search" 
-              placeholder="Search products..." 
-              value={searchQuery} 
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button className={`btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} type="submit">
-              Search
-            </button>
-          </form>
+  <div className="input-group">
+    <input
+      className={`form-control ${darkMode ? "bg-dark text-light" : "bg-light text-dark"}`}
+      type="search"
+      placeholder="Search products..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+    />
+    <button className={`btn ${darkMode ? "btn-outline-light" : "btn-outline-dark"}`} type="submit">
+      <FaSearch />
+    </button>
+  </div>
+</form>
 
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -93,8 +98,8 @@ function Mynavbar() {
                 <li><Link className="dropdown-item" to="/orders">My Orders</Link></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li>
-                  <button className="dropdown-item" onClick={toggleDarkMode}>
-                    {darkMode ? "Light Mode" : "Dark Mode"}
+                <button className="dropdown-item" onClick={() => dispatch(toggleDarkMode())}>
+                    {darkMode ? 'Light Mode' : 'Dark Mode'}
                   </button>
                 </li>
               </ul>

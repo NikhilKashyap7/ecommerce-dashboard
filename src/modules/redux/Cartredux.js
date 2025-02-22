@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  cartItems: [], // Store cart items here
-  wishlist: [], // Store wishlist items here
+  cartItems: [], 
+  wishlist: [], 
 };
 
 const cartSlice = createSlice({
@@ -12,7 +12,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       const existingItem = state.cartItems.find((item) => item.id === action.payload.id);
       if (existingItem) {
-        existingItem.quantity += 1; // Increase quantity if item already exists
+        existingItem.quantity += 1; 
       } else {
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
@@ -22,7 +22,6 @@ const cartSlice = createSlice({
     },
     saveForLater: (state, action) => {
       const item = action.payload;
-      // Remove from cart and add to wishlist
       state.cartItems = state.cartItems.filter((cartItem) => cartItem.id !== item.id);
       state.wishlist.push(item);
     },
