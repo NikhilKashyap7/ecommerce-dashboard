@@ -1,0 +1,6 @@
+.product-img{
+    filter:  drop-shadow(8px 8px 10px gray);
+    height: 200px;
+    object-fit: contain;
+    padding: 10px; 
+}

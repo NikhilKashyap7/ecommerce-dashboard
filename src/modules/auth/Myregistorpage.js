@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Mynavbar from '../shares/Mynavbar';
 import logo from '../images/logo.png';
 import { MdEmail, MdDateRange, MdLock } from "react-icons/md";
-import { FaPhone, FaEye, FaEyeSlash, FaLock } from "react-icons/fa";
+import { FaPhone, FaEye, FaEyeSlash } from "react-icons/fa";
 import { CgBoy, CgGirl } from "react-icons/cg";
 import { FaTransgender } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
@@ -26,7 +26,7 @@ function Myregistorpage() {
                                 <div className='col-md-6 col-sm-12'>
                                     <div className="mb-3">
                                         <label className="form-label"><MdEmail /> Email address</label>
-                                        <input type="email" placeholder="eg:yourname@gmail.com" className="form-control r-input" name='email' />
+                                        <input type="email" placeholder="eg:yourname@gmail.com" className="form-control " name='email' />
                                     </div>
                                 </div>
 
@@ -83,7 +83,7 @@ function Myregistorpage() {
 
                                 <div className='col-md-6 col-sm-12'>
                                     <div className="mb-3 position-relative">
-                                        <label className="form-label"><FaLock /> Password</label>
+                                        <label className="form-label"><MdLock /> Password</label>
                                         <div className="input-group">
                                             <input type={showPassword ? "text" : "password"}
                                                 className="form-control r-input"
@@ -100,14 +100,14 @@ function Myregistorpage() {
 
                                 <div className='col-md-6 col-sm-12'>
                                     <div className="mb-3">
-                                        <label className="form-label "><FaLock /> Confirm Password</label>
+                                        <label className="form-label "><MdLock /> Confirm Password</label>
                                         <div className="input-group">
 
                                             <input type={showConfirmPassword ? "text" : "password"} className="form-control " />
                                             <button
                                                 type="button"
                                                 className="btn btn-outline-secondary"
-                                                onClick={() => setShowConfirmPassword(!showPassword)} >
+                                                onClick={() => setShowConfirmPassword(!showConfirmPassword)} >
                                                 {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
                                             </button>
                                         </div>
@@ -120,10 +120,10 @@ function Myregistorpage() {
                                     </div>
                                     <p style={{ color: 'blue', textDecoration: 'underline' }}>Already Have an account</p>
                                 </div>
-                                <div className='col-12 text-center'>
-                                    <div className="mb-3 ">
-                                        <Link to="/login" className="btn btn-success  r-btn">Login</Link>
-                                    </div>
+                                <div className="mt-2 justify-content-center d-flex">
+                                    <p>Already Have an account
+                                        <Link to="/login" className="text-primary" style={{ color: 'blue', textDecoration: 'underline' }}> Login</Link>
+                                    </p>
                                 </div>
                             </div>
                         </div>

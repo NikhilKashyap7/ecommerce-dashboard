@@ -11,6 +11,8 @@ import "../src/assests/Mysidebar.css";
 import "../src/assests/Mynavbar.css";
 import "../src/assests/Viewdetails.css";
 import "../src/assests/Loader.css";
+import "../src/assests/Myregistor.css";
+import "../src/assests/Apidata.css";
 import ErrorPage from './modules/shares/Myerrorpage.js';
 import { Provider } from 'react-redux';
 import store from './modules/redux/Reduxstore.js';

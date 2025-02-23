@@ -39,10 +39,10 @@ const CartPage = () => {
   return (
     <>
       <Mynavbar />
-      <div className="container mt-4">
-        <h2 className="mb-4">🛒 Your Shopping Cart</h2>
+      <div style={{marginTop:"100px"}}>
+      <div className="container mt-4" style={{marginTop:"100px"}} >
         {cartItems.length === 0 ? (
-          <p>Your cart is empty. <Link to="/shop">Go shopping!</Link></p>
+          <p >Your cart feels so light <Link to="/" style={{textDecoration:'Underline', color:'blue'}}>Go shopping!</Link></p>
         ) : (
           <table className="table table-bordered">
             <thead>
@@ -96,6 +96,8 @@ const CartPage = () => {
           product={selectedProduct} 
         />
       )}
+      </div>
+
     </>
   );
 };

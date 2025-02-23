@@ -16,10 +16,10 @@ function Apidata() {
   const darkMode = useSelector((state) => state.darkMode.darkMode);
 
   useEffect(() => {
-    setLoading(true); // Start loading
+    setLoading(true); 
     axios.get("https://dummyjson.com/products").then((d) => {
       updateCard(d.data.products);
-      setLoading(false); // Stop loading when data is received
+      setLoading(false); 
     });
   }, []);
 
@@ -116,8 +116,7 @@ function Apidata() {
                     <img
                       src={d.images[0]}
                       alt="Product"
-                      className="card-img-top"
-                      style={{ height: 200, objectFit: "contain", padding: 10 }}
+                      className="card-img-top product-img"
                     />
                   ) : (
                     <div
